@@ -1,0 +1,1611 @@
+{
+  "metadata": {
+    "name": "CarDekho Replica Dummy Car Database",
+    "version": "1.0.0",
+    "createdOn": "2026-06-01",
+    "currency": "INR",
+    "priceUnit": "lakh",
+    "market": "India",
+    "notes": [
+      "Prices and specs are approximate dummy values for MVP development, modeled after public CarDekho and V3Cars style catalog fields.",
+      "Use exShowroomPriceLakh as a filterable numeric range. Replace with city-wise on-road pricing when real backend data is added.",
+      "For EVs, mileageKmpl is null and rangeKm is used for recommendation and comparison."
+    ],
+    "sourceReferences": [
+      "https://www.cardekho.com/honda/amaze/specs",
+      "https://www.v3cars.com/honda-cars/amaze",
+      "https://www.cardekho.com/hyundai/aura/specs",
+      "https://www.cardekho.com/mahindra/be-6/specs",
+      "https://www.cardekho.com/tata/harrier-2024/specs",
+      "https://www.cardekho.com/kia/seltos/specs",
+      "https://www.cardekho.com/mg/windsor-ev/specs",
+      "https://www.cardekho.com/mg/comet-ev/specs",
+      "https://www.cardekho.com/honda/city/specs",
+      "https://www.cardekho.com/jeep/compass/specs",
+      "https://www.cardekho.com/hyundai/grand-i10-nios/specs",
+      "https://www.cardekho.com/hyundai/creta/specs",
+      "https://www.cardekho.com/maruti/brezza/specs",
+      "https://www.cardekho.com/tata/nexon/specs",
+      "https://www.cardekho.com/kia/sonet/specs",
+      "https://www.cardekho.com/kia/carens-clavis/specs"
+    ]
+  },
+  "filterSchema": {
+    "preferredFuelType": [
+      "petrol",
+      "diesel",
+      "cng",
+      "electric"
+    ],
+    "usageType": [
+      "city",
+      "highway",
+      "mixed"
+    ],
+    "bodyType": [
+      "hatchback",
+      "sedan",
+      "suv",
+      "muv"
+    ],
+    "segment": [
+      "entry hatchback",
+      "compact sedan",
+      "mid-size sedan",
+      "subcompact suv",
+      "compact suv",
+      "mid-size suv",
+      "premium suv",
+      "electric city car",
+      "electric suv",
+      "family muv"
+    ],
+    "priceBuckets": [
+      {
+        "label": "under 8 lakh",
+        "min": 0,
+        "max": 8
+      },
+      {
+        "label": "8-12 lakh",
+        "min": 8,
+        "max": 12
+      },
+      {
+        "label": "12-18 lakh",
+        "min": 12,
+        "max": 18
+      },
+      {
+        "label": "18-25 lakh",
+        "min": 18,
+        "max": 25
+      },
+      {
+        "label": "25 lakh plus",
+        "min": 25,
+        "max": 50
+      }
+    ],
+    "gearType": [
+      "manual",
+      "amt",
+      "cvt",
+      "torque converter",
+      "dct",
+      "single speed automatic"
+    ]
+  },
+  "featureCatalog": {
+    "safety": [
+      "airbags",
+      "abs",
+      "esc",
+      "hillHold",
+      "isofix",
+      "rearCamera",
+      "360Camera",
+      "adas",
+      "tpms"
+    ],
+    "comfort": [
+      "automaticClimateControl",
+      "rearAcVents",
+      "ventilatedSeats",
+      "poweredDriverSeat",
+      "cruiseControl",
+      "sunroof",
+      "connectedCarTech",
+      "wirelessCharging"
+    ],
+    "infotainment": [
+      "touchscreen",
+      "digitalCluster",
+      "androidAuto",
+      "appleCarPlay",
+      "premiumAudio",
+      "voiceAssistant"
+    ],
+    "ownership": [
+      "lowMaintenance",
+      "highResale",
+      "serviceReach",
+      "longWarranty",
+      "lowRunningCost"
+    ]
+  },
+  "cars": [
+    {
+      "id": "honda-amaze-vx-cvt-2026",
+      "make": "Honda",
+      "model": "Amaze",
+      "variant": "VX CVT",
+      "displayName": "Honda Amaze VX CVT",
+      "modelYear": 2026,
+      "bodyType": "sedan",
+      "segment": "compact sedan",
+      "exShowroomPriceLakh": {
+        "min": 8.0,
+        "max": 10.9
+      },
+      "priceBucket": "8-12 lakh",
+      "preferredFuelType": "petrol",
+      "fuelTypes": [
+        "petrol"
+      ],
+      "usageType": "city",
+      "gearType": "cvt",
+      "transmissionOptions": [
+        "manual",
+        "cvt"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.2L i-VTEC petrol",
+        "displacementCc": 1199,
+        "powerBhP": 89,
+        "torqueNm": 110
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 18.65,
+        "max": 19.46
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 3995,
+        "widthMm": 1733,
+        "wheelbaseMm": 2470,
+        "groundClearanceMm": 172,
+        "bootSpaceLitres": 416
+      },
+      "featureScore": {
+        "safety": 8,
+        "comfort": 7,
+        "technology": 7,
+        "performance": 6,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "abs",
+          "rear camera",
+          "lane watch camera",
+          "isofix"
+        ],
+        "comfort": [
+          "automatic climate control",
+          "rear armrest",
+          "cruise control"
+        ],
+        "infotainment": [
+          "touchscreen",
+          "android auto",
+          "apple carplay",
+          "steering controls"
+        ],
+        "ownership": [
+          "reliable petrol engine",
+          "strong resale",
+          "low maintenance"
+        ]
+      },
+      "idealBuyer": "First-time buyer wanting a refined, easy city sedan with Honda reliability.",
+      "productDescription": "A compact petrol sedan that prioritizes smooth city driving, easy parking, comfort, and long-term ownership confidence.",
+      "recommendationTags": [
+        "city friendly",
+        "first car",
+        "automatic",
+        "low maintenance"
+      ],
+      "pros": [
+        "Smooth CVT for traffic",
+        "Reliable engine",
+        "Comfortable compact sedan size"
+      ],
+      "tradeoffs": [
+        "Not a performance-focused car",
+        "Rear seat width is best for two adults and one child"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Honda/Amaze/12185/1755764679476/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "hyundai-aura-sx-cng-2026",
+      "make": "Hyundai",
+      "model": "Aura",
+      "variant": "SX CNG",
+      "displayName": "Hyundai Aura SX CNG",
+      "modelYear": 2026,
+      "bodyType": "sedan",
+      "segment": "compact sedan",
+      "exShowroomPriceLakh": {
+        "min": 6.0,
+        "max": 8.54
+      },
+      "priceBucket": "under 8 lakh",
+      "preferredFuelType": "cng",
+      "fuelTypes": [
+        "petrol",
+        "cng"
+      ],
+      "usageType": "city",
+      "gearType": "manual",
+      "transmissionOptions": [
+        "manual",
+        "amt"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.2L bi-fuel petrol CNG",
+        "displacementCc": 1197,
+        "powerBhP": 68,
+        "torqueNm": 95.2
+      },
+      "battery": null,
+      "mileageKmpl": null,
+      "mileageKmPerKg": {
+        "min": 22,
+        "max": 22
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 3995,
+        "widthMm": 1680,
+        "wheelbaseMm": 2450,
+        "groundClearanceMm": 165,
+        "bootSpaceLitres": 402
+      },
+      "featureScore": {
+        "safety": 7,
+        "comfort": 7,
+        "technology": 7,
+        "performance": 5,
+        "value": 9
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "abs",
+          "rear parking camera",
+          "tpms"
+        ],
+        "comfort": [
+          "automatic climate control",
+          "rear ac vents",
+          "height adjustable driver seat"
+        ],
+        "infotainment": [
+          "8-inch touchscreen",
+          "android auto",
+          "apple carplay",
+          "wireless phone charger"
+        ],
+        "ownership": [
+          "low running cost",
+          "wide service network",
+          "city taxi-friendly practicality"
+        ]
+      },
+      "idealBuyer": "Daily commuter with high city running who wants low fuel cost and sedan boot practicality.",
+      "productDescription": "A value-focused compact sedan with CNG efficiency, decent feature coverage, and easy urban usability.",
+      "recommendationTags": [
+        "cng",
+        "budget sedan",
+        "city commute",
+        "low running cost"
+      ],
+      "pros": [
+        "Very economical for daily city use",
+        "Feature-rich for the price",
+        "Compact dimensions"
+      ],
+      "tradeoffs": [
+        "CNG reduces boot usability",
+        "Manual-only CNG option"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Hyundai/Aura/10125/1762429751468/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "mahindra-be-6-pack-one-2026",
+      "make": "Mahindra",
+      "model": "BE 6",
+      "variant": "Pack One",
+      "displayName": "Mahindra BE 6 Pack One",
+      "modelYear": 2026,
+      "bodyType": "suv",
+      "segment": "electric suv",
+      "exShowroomPriceLakh": {
+        "min": 18.9,
+        "max": 28.49
+      },
+      "priceBucket": "18-25 lakh",
+      "preferredFuelType": "electric",
+      "fuelTypes": [
+        "electric"
+      ],
+      "usageType": "mixed",
+      "gearType": "single speed automatic",
+      "transmissionOptions": [
+        "single speed automatic"
+      ],
+      "seatingCapacity": 5,
+      "engine": null,
+      "battery": {
+        "capacityKwh": {
+          "min": 59,
+          "max": 79
+        },
+        "motorPowerKw": 170,
+        "powerBhP": 228,
+        "torqueNm": 380,
+        "chargingPort": "CCS-II"
+      },
+      "mileageKmpl": null,
+      "rangeKm": {
+        "min": 557,
+        "max": 683
+      },
+      "dimensions": {
+        "lengthMm": 4371,
+        "widthMm": 1907,
+        "wheelbaseMm": 2775,
+        "groundClearanceMm": 207,
+        "bootSpaceLitres": 455
+      },
+      "featureScore": {
+        "safety": 9,
+        "comfort": 8,
+        "technology": 10,
+        "performance": 9,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "adas",
+          "secure360 surveillance",
+          "360 camera",
+          "multiple airbags",
+          "tpms"
+        ],
+        "comfort": [
+          "auto park assist",
+          "powered seats",
+          "drive modes",
+          "panoramic roof"
+        ],
+        "infotainment": [
+          "dual 12.3-inch displays",
+          "wireless android auto",
+          "wireless apple carplay",
+          "alexa",
+          "chatgpt integration"
+        ],
+        "ownership": [
+          "low EV running cost",
+          "fast charging support",
+          "future-ready tech package"
+        ]
+      },
+      "idealBuyer": "Tech-first buyer wanting an electric SUV for mixed city and highway use.",
+      "productDescription": "A futuristic electric SUV with strong range, high tech appeal, quick performance, and premium cabin experience.",
+      "recommendationTags": [
+        "electric",
+        "tech loaded",
+        "long range",
+        "performance"
+      ],
+      "pros": [
+        "Long claimed range",
+        "Strong torque",
+        "Very rich technology package"
+      ],
+      "tradeoffs": [
+        "Higher upfront cost",
+        "Charging access should be planned before purchase"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Mahindra/BE-6/9263/1762423834412/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "tata-harrier-fearless-plus-at-2026",
+      "make": "Tata",
+      "model": "Harrier",
+      "variant": "Fearless Plus AT",
+      "displayName": "Tata Harrier Fearless Plus AT",
+      "modelYear": 2026,
+      "bodyType": "suv",
+      "segment": "premium suv",
+      "exShowroomPriceLakh": {
+        "min": 12.89,
+        "max": 25.85
+      },
+      "priceBucket": "18-25 lakh",
+      "preferredFuelType": "diesel",
+      "fuelTypes": [
+        "diesel",
+        "petrol"
+      ],
+      "usageType": "highway",
+      "gearType": "torque converter",
+      "transmissionOptions": [
+        "manual",
+        "torque converter"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "2.0L turbo diesel",
+        "displacementCc": 1956,
+        "powerBhP": 167.6,
+        "torqueNm": 350
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 14.6,
+        "max": 16.8
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 4605,
+        "widthMm": 1922,
+        "wheelbaseMm": 2741,
+        "groundClearanceMm": 205,
+        "bootSpaceLitres": 445
+      },
+      "featureScore": {
+        "safety": 10,
+        "comfort": 9,
+        "technology": 9,
+        "performance": 8,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "5-star safety positioning",
+          "7 airbags",
+          "adas",
+          "esp",
+          "digital irvm",
+          "360 camera"
+        ],
+        "comfort": [
+          "ventilated seats",
+          "powered driver seat",
+          "dual-zone climate control",
+          "panoramic sunroof"
+        ],
+        "infotainment": [
+          "14.5-inch touchscreen",
+          "digital instrument cluster",
+          "wireless android auto",
+          "wireless apple carplay",
+          "premium audio"
+        ],
+        "ownership": [
+          "strong highway comfort",
+          "diesel torque",
+          "high road presence"
+        ]
+      },
+      "idealBuyer": "Family buyer who drives highways often and wants safety, space, and road presence.",
+      "productDescription": "A premium diesel SUV built around safety, highway confidence, strong torque, and a feature-rich cabin.",
+      "recommendationTags": [
+        "family suv",
+        "highway",
+        "safety",
+        "diesel automatic"
+      ],
+      "pros": [
+        "Excellent highway presence",
+        "Strong safety focus",
+        "Comfortable feature-loaded cabin"
+      ],
+      "tradeoffs": [
+        "Large size can feel bulky in tight city use",
+        "Diesel-only preference may not suit low running buyers"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Tata/Harrier/9368/1766125794560/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "kia-seltos-htx-diesel-at-2026",
+      "make": "Kia",
+      "model": "Seltos",
+      "variant": "HTX Diesel AT",
+      "displayName": "Kia Seltos HTX Diesel AT",
+      "modelYear": 2026,
+      "bodyType": "suv",
+      "segment": "mid-size suv",
+      "exShowroomPriceLakh": {
+        "min": 10.99,
+        "max": 19.99
+      },
+      "priceBucket": "12-18 lakh",
+      "preferredFuelType": "diesel",
+      "fuelTypes": [
+        "petrol",
+        "diesel"
+      ],
+      "usageType": "mixed",
+      "gearType": "torque converter",
+      "transmissionOptions": [
+        "manual",
+        "imt",
+        "dct",
+        "torque converter"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.5L CRDi diesel",
+        "displacementCc": 1493,
+        "powerBhP": 114,
+        "torqueNm": 250
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 17,
+        "max": 20.7
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 4460,
+        "widthMm": 1830,
+        "wheelbaseMm": 2690,
+        "groundClearanceMm": 190,
+        "bootSpaceLitres": 447
+      },
+      "featureScore": {
+        "safety": 8,
+        "comfort": 8,
+        "technology": 9,
+        "performance": 8,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "esc",
+          "hill assist",
+          "rear camera",
+          "tpms"
+        ],
+        "comfort": [
+          "ventilated seats",
+          "automatic climate control",
+          "cruise control",
+          "rear ac vents"
+        ],
+        "infotainment": [
+          "10.25-inch touchscreen",
+          "digital cluster",
+          "connected car tech",
+          "android auto",
+          "apple carplay"
+        ],
+        "ownership": [
+          "diesel efficiency",
+          "premium cabin feel",
+          "balanced city-highway usability"
+        ]
+      },
+      "idealBuyer": "Buyer wanting a feature-rich mid-size SUV with diesel efficiency and automatic convenience.",
+      "productDescription": "A polished mid-size SUV that balances premium features, diesel economy, and easy automatic driving.",
+      "recommendationTags": [
+        "diesel automatic",
+        "mid-size suv",
+        "premium features",
+        "balanced"
+      ],
+      "pros": [
+        "Feature-rich cabin",
+        "Multiple powertrain choices",
+        "Good diesel highway economy"
+      ],
+      "tradeoffs": [
+        "Top variants get expensive",
+        "Ride can feel firm on bad roads"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Kia/Seltos/13094/1778328978290/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "mg-windsor-ev-essence-2026",
+      "make": "MG",
+      "model": "Windsor EV",
+      "variant": "Essence",
+      "displayName": "MG Windsor EV Essence",
+      "modelYear": 2026,
+      "bodyType": "muv",
+      "segment": "electric suv",
+      "exShowroomPriceLakh": {
+        "min": 14.0,
+        "max": 18.5
+      },
+      "priceBucket": "12-18 lakh",
+      "preferredFuelType": "electric",
+      "fuelTypes": [
+        "electric"
+      ],
+      "usageType": "city",
+      "gearType": "single speed automatic",
+      "transmissionOptions": [
+        "single speed automatic"
+      ],
+      "seatingCapacity": 5,
+      "engine": null,
+      "battery": {
+        "capacityKwh": {
+          "min": 38,
+          "max": 52.9
+        },
+        "motorPowerKw": 100,
+        "powerBhP": 134,
+        "torqueNm": 200,
+        "chargingPort": "CCS-II"
+      },
+      "mileageKmpl": null,
+      "rangeKm": {
+        "min": 332,
+        "max": 449
+      },
+      "dimensions": {
+        "lengthMm": 4295,
+        "widthMm": 2126,
+        "wheelbaseMm": 2700,
+        "groundClearanceMm": 186,
+        "bootSpaceLitres": 579
+      },
+      "featureScore": {
+        "safety": 8,
+        "comfort": 9,
+        "technology": 9,
+        "performance": 7,
+        "value": 9
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "abs",
+          "esp",
+          "360 camera",
+          "rear parking sensors"
+        ],
+        "comfort": [
+          "reclining rear seats",
+          "automatic climate control",
+          "large cabin",
+          "drive modes"
+        ],
+        "infotainment": [
+          "large touchscreen",
+          "connected car tech",
+          "android auto",
+          "apple carplay",
+          "voice commands"
+        ],
+        "ownership": [
+          "low running cost",
+          "EV city efficiency",
+          "spacious cabin"
+        ]
+      },
+      "idealBuyer": "Urban family buyer who wants a spacious EV and has predictable charging access.",
+      "productDescription": "A comfort-focused electric family car with a roomy cabin, relaxed drive, and strong city usability.",
+      "recommendationTags": [
+        "electric",
+        "family comfort",
+        "city ev",
+        "spacious"
+      ],
+      "pros": [
+        "Spacious interior",
+        "Low running cost",
+        "Relaxed EV drive"
+      ],
+      "tradeoffs": [
+        "Charging access is important",
+        "MUV styling may not appeal to all SUV buyers"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/MG/Windsor-EV/11848/1755845275936/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "mg-comet-ev-excite-2026",
+      "make": "MG",
+      "model": "Comet EV",
+      "variant": "Excite",
+      "displayName": "MG Comet EV Excite",
+      "modelYear": 2026,
+      "bodyType": "hatchback",
+      "segment": "electric city car",
+      "exShowroomPriceLakh": {
+        "min": 7.5,
+        "max": 9.56
+      },
+      "priceBucket": "8-12 lakh",
+      "preferredFuelType": "electric",
+      "fuelTypes": [
+        "electric"
+      ],
+      "usageType": "city",
+      "gearType": "single speed automatic",
+      "transmissionOptions": [
+        "single speed automatic"
+      ],
+      "seatingCapacity": 4,
+      "engine": null,
+      "battery": {
+        "capacityKwh": {
+          "min": 17.3,
+          "max": 17.4
+        },
+        "motorPowerKw": 41.42,
+        "powerBhP": 41.42,
+        "torqueNm": 110,
+        "chargingPort": "Type-2"
+      },
+      "mileageKmpl": null,
+      "rangeKm": {
+        "min": 182,
+        "max": 230
+      },
+      "dimensions": {
+        "lengthMm": 2974,
+        "widthMm": 1505,
+        "wheelbaseMm": 2010,
+        "groundClearanceMm": 165,
+        "bootSpaceLitres": 350
+      },
+      "featureScore": {
+        "safety": 6,
+        "comfort": 6,
+        "technology": 8,
+        "performance": 5,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "dual airbags",
+          "abs",
+          "rear parking camera",
+          "tpms"
+        ],
+        "comfort": [
+          "compact parking footprint",
+          "automatic drive",
+          "keyless entry"
+        ],
+        "infotainment": [
+          "dual screens",
+          "connected car features",
+          "android auto",
+          "apple carplay"
+        ],
+        "ownership": [
+          "very low running cost",
+          "easy city parking",
+          "simple EV maintenance"
+        ]
+      },
+      "idealBuyer": "City-only buyer, couple, or second-car user who values easy parking and low running cost.",
+      "productDescription": "A tiny electric hatchback focused on short urban trips, effortless parking, and extremely low running cost.",
+      "recommendationTags": [
+        "city ev",
+        "easy parking",
+        "second car",
+        "low running cost"
+      ],
+      "pros": [
+        "Excellent for tight city use",
+        "Low EV running cost",
+        "Modern cabin tech"
+      ],
+      "tradeoffs": [
+        "Limited highway ability",
+        "Compact seating and luggage space"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/MG/Comet-EV/11556/1772712400778/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "honda-city-zx-cvt-2026",
+      "make": "Honda",
+      "model": "City",
+      "variant": "ZX CVT",
+      "displayName": "Honda City ZX CVT",
+      "modelYear": 2026,
+      "bodyType": "sedan",
+      "segment": "mid-size sedan",
+      "exShowroomPriceLakh": {
+        "min": 12.0,
+        "max": 16.07
+      },
+      "priceBucket": "12-18 lakh",
+      "preferredFuelType": "petrol",
+      "fuelTypes": [
+        "petrol"
+      ],
+      "usageType": "mixed",
+      "gearType": "cvt",
+      "transmissionOptions": [
+        "manual",
+        "cvt"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.5L i-VTEC petrol",
+        "displacementCc": 1498,
+        "powerBhP": 119,
+        "torqueNm": 145
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 17.8,
+        "max": 18.4
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 4583,
+        "widthMm": 1748,
+        "wheelbaseMm": 2600,
+        "groundClearanceMm": 165,
+        "bootSpaceLitres": 506
+      },
+      "featureScore": {
+        "safety": 9,
+        "comfort": 9,
+        "technology": 8,
+        "performance": 7,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "lane watch camera",
+          "adas",
+          "isofix",
+          "rear camera"
+        ],
+        "comfort": [
+          "leatherette upholstery",
+          "sunroof",
+          "automatic climate control",
+          "rear ac vents"
+        ],
+        "infotainment": [
+          "touchscreen",
+          "connected car tech",
+          "android auto",
+          "apple carplay",
+          "digital cluster"
+        ],
+        "ownership": [
+          "reliable petrol engine",
+          "premium sedan comfort",
+          "high resale"
+        ]
+      },
+      "idealBuyer": "Sedan buyer wanting comfort, reliability, rear seat space, and a smooth petrol automatic.",
+      "productDescription": "A refined mid-size sedan with a spacious cabin, smooth CVT, strong reliability image, and balanced city-highway comfort.",
+      "recommendationTags": [
+        "premium sedan",
+        "petrol automatic",
+        "comfortable",
+        "reliable"
+      ],
+      "pros": [
+        "Spacious rear seat",
+        "Refined petrol engine",
+        "Smooth CVT"
+      ],
+      "tradeoffs": [
+        "SUV buyers may prefer higher seating",
+        "No diesel option"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Honda/City/13585/1779442198348/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "jeep-compass-model-s-4x4-at-2026",
+      "make": "Jeep",
+      "model": "Compass",
+      "variant": "Model S 4x4 AT",
+      "displayName": "Jeep Compass Model S 4x4 AT",
+      "modelYear": 2026,
+      "bodyType": "suv",
+      "segment": "premium suv",
+      "exShowroomPriceLakh": {
+        "min": 17.99,
+        "max": 30.7
+      },
+      "priceBucket": "25 lakh plus",
+      "preferredFuelType": "diesel",
+      "fuelTypes": [
+        "diesel"
+      ],
+      "usageType": "highway",
+      "gearType": "torque converter",
+      "transmissionOptions": [
+        "manual",
+        "torque converter"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "2.0L multijet diesel",
+        "displacementCc": 1956,
+        "powerBhP": 168,
+        "torqueNm": 350
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 14.9,
+        "max": 17.1
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 4405,
+        "widthMm": 1818,
+        "wheelbaseMm": 2636,
+        "groundClearanceMm": 178,
+        "bootSpaceLitres": 438
+      },
+      "featureScore": {
+        "safety": 9,
+        "comfort": 8,
+        "technology": 8,
+        "performance": 9,
+        "value": 6
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "esc",
+          "hill descent control",
+          "360 camera",
+          "tpms"
+        ],
+        "comfort": [
+          "powered front seats",
+          "dual-zone climate control",
+          "panoramic sunroof",
+          "cruise control"
+        ],
+        "infotainment": [
+          "10.1-inch touchscreen",
+          "10.25-inch digital cluster",
+          "wireless android auto",
+          "wireless apple carplay",
+          "wireless charging"
+        ],
+        "ownership": [
+          "premium brand appeal",
+          "4x4 capability",
+          "solid highway manners"
+        ]
+      },
+      "idealBuyer": "Premium SUV buyer who values highway stability, diesel torque, and occasional rough-road capability.",
+      "productDescription": "A premium diesel SUV with strong driving manners, 4x4 capability, and a mature feature package.",
+      "recommendationTags": [
+        "premium suv",
+        "diesel",
+        "4x4",
+        "highway"
+      ],
+      "pros": [
+        "Strong diesel torque",
+        "Premium cabin feel",
+        "Available 4x4 capability"
+      ],
+      "tradeoffs": [
+        "Expensive against similarly sized SUVs",
+        "Rear seat and boot are not the largest in class"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Jeep/Compass/10938/1772782142501/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "hyundai-grand-i10-nios-asta-amt-2026",
+      "make": "Hyundai",
+      "model": "Grand i10 Nios",
+      "variant": "Asta AMT",
+      "displayName": "Hyundai Grand i10 Nios Asta AMT",
+      "modelYear": 2026,
+      "bodyType": "hatchback",
+      "segment": "entry hatchback",
+      "exShowroomPriceLakh": {
+        "min": 5.55,
+        "max": 8.03
+      },
+      "priceBucket": "under 8 lakh",
+      "preferredFuelType": "petrol",
+      "fuelTypes": [
+        "petrol",
+        "cng"
+      ],
+      "usageType": "city",
+      "gearType": "amt",
+      "transmissionOptions": [
+        "manual",
+        "amt"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.2L Kappa petrol",
+        "displacementCc": 1197,
+        "powerBhP": 83,
+        "torqueNm": 114
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 16,
+        "max": 18
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 3815,
+        "widthMm": 1680,
+        "wheelbaseMm": 2450,
+        "groundClearanceMm": 165,
+        "bootSpaceLitres": 260
+      },
+      "featureScore": {
+        "safety": 7,
+        "comfort": 7,
+        "technology": 7,
+        "performance": 5,
+        "value": 9
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "abs",
+          "rear parking camera",
+          "tpms"
+        ],
+        "comfort": [
+          "automatic climate control",
+          "rear ac vents",
+          "height adjustable driver seat"
+        ],
+        "infotainment": [
+          "8-inch touchscreen",
+          "android auto",
+          "apple carplay",
+          "wireless charger"
+        ],
+        "ownership": [
+          "low maintenance",
+          "city friendly",
+          "wide service network"
+        ]
+      },
+      "idealBuyer": "Small family or new driver who wants an affordable automatic hatchback for city use.",
+      "productDescription": "A compact hatchback with easy controls, practical city manners, and useful features at a sensible price.",
+      "recommendationTags": [
+        "hatchback",
+        "city automatic",
+        "first car",
+        "budget"
+      ],
+      "pros": [
+        "Easy to drive in traffic",
+        "Feature-rich for the segment",
+        "Compact and practical"
+      ],
+      "tradeoffs": [
+        "AMT is not as smooth as CVT or torque converter",
+        "Best for city speeds"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Hyundai/Grand-i10-Nios/10088/1762430432997/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "hyundai-creta-sx-o-turbo-dct-2026",
+      "make": "Hyundai",
+      "model": "Creta",
+      "variant": "SX(O) Turbo DCT",
+      "displayName": "Hyundai Creta SX(O) Turbo DCT",
+      "modelYear": 2026,
+      "bodyType": "suv",
+      "segment": "mid-size suv",
+      "exShowroomPriceLakh": {
+        "min": 10.79,
+        "max": 20.05
+      },
+      "priceBucket": "18-25 lakh",
+      "preferredFuelType": "petrol",
+      "fuelTypes": [
+        "petrol",
+        "diesel"
+      ],
+      "usageType": "mixed",
+      "gearType": "dct",
+      "transmissionOptions": [
+        "manual",
+        "cvt",
+        "dct",
+        "torque converter"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.5L turbo petrol",
+        "displacementCc": 1482,
+        "powerBhP": 157.57,
+        "torqueNm": 253
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 17.4,
+        "max": 21.8
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 4330,
+        "widthMm": 1790,
+        "wheelbaseMm": 2610,
+        "groundClearanceMm": 190,
+        "bootSpaceLitres": 433
+      },
+      "featureScore": {
+        "safety": 8,
+        "comfort": 9,
+        "technology": 9,
+        "performance": 9,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "adas",
+          "esc",
+          "360 camera",
+          "tpms"
+        ],
+        "comfort": [
+          "ventilated seats",
+          "panoramic sunroof",
+          "dual-zone climate control",
+          "powered driver seat"
+        ],
+        "infotainment": [
+          "dual 10.25-inch screens",
+          "connected car tech",
+          "android auto",
+          "apple carplay",
+          "premium audio"
+        ],
+        "ownership": [
+          "strong resale",
+          "wide service network",
+          "multiple powertrain choices"
+        ]
+      },
+      "idealBuyer": "Family SUV buyer wanting premium features, turbo-petrol performance, and strong brand/service confidence.",
+      "productDescription": "A popular mid-size SUV with a premium cabin, powerful turbo petrol automatic, and strong everyday usability.",
+      "recommendationTags": [
+        "popular suv",
+        "turbo petrol",
+        "feature loaded",
+        "family"
+      ],
+      "pros": [
+        "Powerful turbo engine",
+        "Premium features",
+        "Strong resale and service reach"
+      ],
+      "tradeoffs": [
+        "Top variants are expensive",
+        "DCT is best suited to mixed driving rather than constant crawl traffic"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Hyundai/Creta/8667/1755765115423/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "maruti-brezza-zxi-plus-at-2026",
+      "make": "Maruti Suzuki",
+      "model": "Brezza",
+      "variant": "ZXI Plus AT",
+      "displayName": "Maruti Suzuki Brezza ZXI Plus AT",
+      "modelYear": 2026,
+      "bodyType": "suv",
+      "segment": "subcompact suv",
+      "exShowroomPriceLakh": {
+        "min": 8.26,
+        "max": 13.01
+      },
+      "priceBucket": "8-12 lakh",
+      "preferredFuelType": "petrol",
+      "fuelTypes": [
+        "petrol",
+        "cng"
+      ],
+      "usageType": "city",
+      "gearType": "torque converter",
+      "transmissionOptions": [
+        "manual",
+        "torque converter"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.5L K15C petrol",
+        "displacementCc": 1462,
+        "powerBhP": 101.64,
+        "torqueNm": 136.8
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 17.38,
+        "max": 19.89
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 3995,
+        "widthMm": 1790,
+        "wheelbaseMm": 2500,
+        "groundClearanceMm": 198,
+        "bootSpaceLitres": 328
+      },
+      "featureScore": {
+        "safety": 7,
+        "comfort": 8,
+        "technology": 8,
+        "performance": 6,
+        "value": 9
+      },
+      "features": {
+        "safety": [
+          "6 airbags on select variants",
+          "abs",
+          "esc",
+          "hill hold",
+          "rear camera"
+        ],
+        "comfort": [
+          "automatic climate control",
+          "rear ac vents",
+          "cruise control",
+          "sunroof"
+        ],
+        "infotainment": [
+          "9-inch touchscreen",
+          "wireless android auto",
+          "wireless apple carplay",
+          "head-up display"
+        ],
+        "ownership": [
+          "excellent service reach",
+          "high resale",
+          "fuel efficient petrol"
+        ]
+      },
+      "idealBuyer": "Practical buyer wanting a reliable compact SUV with easy ownership and automatic convenience.",
+      "productDescription": "A sensible subcompact SUV with reliable petrol performance, strong service backing, and an easy automatic gearbox.",
+      "recommendationTags": [
+        "reliable suv",
+        "city use",
+        "easy ownership",
+        "automatic"
+      ],
+      "pros": [
+        "Very easy to own",
+        "Efficient petrol engine",
+        "Smooth automatic"
+      ],
+      "tradeoffs": [
+        "Not as powerful as turbo rivals",
+        "Interior feel is practical rather than premium"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Maruti/Brezza/10400/1770885013083/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "tata-nexon-creative-plus-amt-2026",
+      "make": "Tata",
+      "model": "Nexon",
+      "variant": "Creative Plus AMT",
+      "displayName": "Tata Nexon Creative Plus AMT",
+      "modelYear": 2026,
+      "bodyType": "suv",
+      "segment": "subcompact suv",
+      "exShowroomPriceLakh": {
+        "min": 7.37,
+        "max": 15.6
+      },
+      "priceBucket": "8-12 lakh",
+      "preferredFuelType": "petrol",
+      "fuelTypes": [
+        "petrol",
+        "diesel",
+        "cng",
+        "electric"
+      ],
+      "usageType": "mixed",
+      "gearType": "amt",
+      "transmissionOptions": [
+        "manual",
+        "amt",
+        "dct"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.2L turbo petrol",
+        "displacementCc": 1199,
+        "powerBhP": 118.2,
+        "torqueNm": 170
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 17.01,
+        "max": 24.08
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 3995,
+        "widthMm": 1804,
+        "wheelbaseMm": 2498,
+        "groundClearanceMm": 208,
+        "bootSpaceLitres": 382
+      },
+      "featureScore": {
+        "safety": 10,
+        "comfort": 8,
+        "technology": 8,
+        "performance": 7,
+        "value": 9
+      },
+      "features": {
+        "safety": [
+          "6 airbags standard",
+          "esp",
+          "hill hold",
+          "rear camera",
+          "isofix"
+        ],
+        "comfort": [
+          "automatic climate control",
+          "rear ac vents",
+          "height adjustable driver seat",
+          "sunroof"
+        ],
+        "infotainment": [
+          "10.25-inch touchscreen",
+          "wireless android auto",
+          "wireless apple carplay",
+          "digital cluster"
+        ],
+        "ownership": [
+          "high safety appeal",
+          "multiple fuel options",
+          "strong value"
+        ]
+      },
+      "idealBuyer": "Safety-focused buyer wanting a compact SUV with multiple powertrain choices and strong value.",
+      "productDescription": "A safety-led compact SUV that offers broad fuel choices, modern features, and strong everyday practicality.",
+      "recommendationTags": [
+        "safety",
+        "compact suv",
+        "value",
+        "multi fuel"
+      ],
+      "pros": [
+        "Strong safety package",
+        "Multiple fuel and gearbox choices",
+        "Good ground clearance"
+      ],
+      "tradeoffs": [
+        "AMT is convenient but not the smoothest automatic",
+        "Turbo petrol mileage depends heavily on driving style"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Tata/Nexon/11115/1779101151711/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "kia-sonet-htx-diesel-at-2026",
+      "make": "Kia",
+      "model": "Sonet",
+      "variant": "HTX Diesel AT",
+      "displayName": "Kia Sonet HTX Diesel AT",
+      "modelYear": 2026,
+      "bodyType": "suv",
+      "segment": "subcompact suv",
+      "exShowroomPriceLakh": {
+        "min": 7.3,
+        "max": 14.0
+      },
+      "priceBucket": "8-12 lakh",
+      "preferredFuelType": "diesel",
+      "fuelTypes": [
+        "petrol",
+        "diesel"
+      ],
+      "usageType": "mixed",
+      "gearType": "torque converter",
+      "transmissionOptions": [
+        "manual",
+        "imt",
+        "dct",
+        "torque converter"
+      ],
+      "seatingCapacity": 5,
+      "engine": {
+        "type": "1.5L diesel",
+        "displacementCc": 1493,
+        "powerBhP": 114,
+        "torqueNm": 250
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 18.4,
+        "max": 24.1
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 3995,
+        "widthMm": 1790,
+        "wheelbaseMm": 2500,
+        "groundClearanceMm": 205,
+        "bootSpaceLitres": 385
+      },
+      "featureScore": {
+        "safety": 8,
+        "comfort": 8,
+        "technology": 9,
+        "performance": 8,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "esc",
+          "front and rear parking sensors",
+          "rear camera",
+          "tpms"
+        ],
+        "comfort": [
+          "ventilated seats",
+          "sunroof",
+          "cruise control",
+          "automatic climate control"
+        ],
+        "infotainment": [
+          "10.25-inch touchscreen",
+          "digital cluster",
+          "connected car tech",
+          "android auto",
+          "apple carplay"
+        ],
+        "ownership": [
+          "diesel efficiency",
+          "compact size",
+          "premium features in small footprint"
+        ]
+      },
+      "idealBuyer": "Buyer wanting a compact SUV with strong diesel economy and premium features without Creta-sized dimensions.",
+      "productDescription": "A feature-heavy subcompact SUV with efficient diesel automatic powertrain and easy city-highway balance.",
+      "recommendationTags": [
+        "diesel automatic",
+        "compact suv",
+        "feature rich",
+        "efficient"
+      ],
+      "pros": [
+        "Efficient diesel",
+        "Feature loaded",
+        "Compact but premium-feeling"
+      ],
+      "tradeoffs": [
+        "Rear seat width is average",
+        "Top variants can overlap with bigger SUVs"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Kia/Sonet/9783/1755775200530/front-left-side-47.jpg?tr=w-664"
+    },
+    {
+      "id": "kia-carens-clavis-htk-plus-dct-2026",
+      "make": "Kia",
+      "model": "Carens Clavis",
+      "variant": "HTK Plus Turbo 6Str DCT",
+      "displayName": "Kia Carens Clavis HTK Plus Turbo DCT",
+      "modelYear": 2026,
+      "bodyType": "muv",
+      "segment": "family muv",
+      "exShowroomPriceLakh": {
+        "min": 11.21,
+        "max": 21.57
+      },
+      "priceBucket": "12-18 lakh",
+      "preferredFuelType": "petrol",
+      "fuelTypes": [
+        "petrol",
+        "diesel"
+      ],
+      "usageType": "highway",
+      "gearType": "dct",
+      "transmissionOptions": [
+        "manual",
+        "dct",
+        "torque converter"
+      ],
+      "seatingCapacity": 6,
+      "engine": {
+        "type": "1.5L turbo petrol",
+        "displacementCc": 1482,
+        "powerBhP": 157.57,
+        "torqueNm": 253
+      },
+      "battery": null,
+      "mileageKmpl": {
+        "min": 15.34,
+        "max": 19.54
+      },
+      "rangeKm": null,
+      "dimensions": {
+        "lengthMm": 4550,
+        "widthMm": 1800,
+        "wheelbaseMm": 2780,
+        "groundClearanceMm": 195,
+        "bootSpaceLitres": 216
+      },
+      "featureScore": {
+        "safety": 9,
+        "comfort": 9,
+        "technology": 9,
+        "performance": 8,
+        "value": 8
+      },
+      "features": {
+        "safety": [
+          "6 airbags",
+          "adas on higher variants",
+          "abs",
+          "esc",
+          "blind spot monitoring"
+        ],
+        "comfort": [
+          "captain seats",
+          "rear ac vents",
+          "panoramic sunroof",
+          "ventilated front seats"
+        ],
+        "infotainment": [
+          "dual 12.3-inch displays",
+          "8-speaker bose audio",
+          "android auto",
+          "apple carplay",
+          "connected car tech"
+        ],
+        "ownership": [
+          "family practicality",
+          "flexible seating",
+          "premium MPV comfort"
+        ]
+      },
+      "idealBuyer": "Family buyer needing six-seat comfort, long-trip practicality, and richer features than a budget MPV.",
+      "productDescription": "A premium family MUV with flexible seating, strong turbo-petrol performance, and comfort-focused features.",
+      "recommendationTags": [
+        "family car",
+        "6 seater",
+        "highway",
+        "premium muv"
+      ],
+      "pros": [
+        "Excellent family practicality",
+        "Comfortable second row",
+        "Premium feature package"
+      ],
+      "tradeoffs": [
+        "Boot space is limited with all rows up",
+        "Turbo DCT variant costs more than basic MPVs"
+      ],
+      "imageUrl": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Kia/Carens-Clavis/12583/1776845877709/front-left-side-47.jpg?tr=w-664"
+    }
+  ]
+}
