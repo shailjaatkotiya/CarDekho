@@ -2,10 +2,6 @@
 
 React + FastAPI car discovery MVP with browse, compare, recommendations, car details, and login-gated shortlist flow.
 
-## Tech Stack
-
-- `frontend/`: React 18, TypeScript, Vite, Tailwind CSS, TanStack Query, Apollo Client, Zustand
-- `backend/`: FastAPI, Strawberry GraphQL, SQLAlchemy async, Alembic, PostgreSQL, Redis
 ## What I Built
 I built a CarDekho-style car discovery MVP: a React frontend with browsing, filters, car cards, car detail pages, comparison, discovery recommendations, shortlist/login flow, and supporting UI like EMI/on-road price tools.
 
@@ -15,66 +11,36 @@ I also fixed two specific broken flows:
 
 The Compare feature now carries selected car IDs into /compare?ids=..., persists the selection locally, and handles loading errors better.
 The Shortlist button now redirects users to a real /login page instead of trying to save immediately.
-Why I Built It This Way
+
+#### Why I Built It This Way
 I prioritized the customer-facing car buying experience first because this app is meant to feel like a usable CarDekho-inspired product, not just a backend demo.
 
 ##### The important product flows are:
 
-Browse cars by preference
-Compare 2-4 cars side by side
-View details before deciding
-Save/shortlist only after login
-Keep backend data replaceable later with real APIs/database
-So the app uses dummy data and GraphQL-style structure now, but the modules are shaped so real auth, database persistence, reviews, alerts, and pricing can be plugged in later.
+- Browse cars by preference
+- Compare 2-4 cars side by side
+- View details before deciding
+- Save/shortlist only after login
+- Keep backend data replaceable later with real APIs/database
+- So the app uses dummy data and GraphQL-style structure now, but the modules are shaped so real auth, database persistence, reviews, alerts, and pricing can be plugged in later.
 
-### What I Deliberately Cut
+## What I Deliberately Cut
 I deliberately cut full production features that would slow down the MVP:
 
-Real authentication and signup persistence
-Real user accounts and saved shortlist ownership
-Payment, dealer contact, and booking workflows
-Full admin panel for adding/editing cars
-Live CarDekho scraping or live third-party data
-Production-grade comparison PDF export
-Complete backend deployment and monitoring
-Real image/content moderation or data validation pipeline
-I kept the MVP focused on proving the product journey first: discovery, browse, compare, detail, and login-gated shortlist.
+- Real authentication and signup persistence
+- Real user accounts and saved shortlist ownership
+- Payment, dealer contact, and booking workflows
+- Full admin panel for adding/editing cars
+- Live CarDekho scraping or live third-party data
+- Production-grade comparison PDF export
+- Complete backend deployment and monitoring
+- Real image/content moderation or data validation pipeline
+- I kept the MVP focused on proving the product journey first: discovery, browse, compare, detail, and login-gated shortlist.
 
-## What’s your tech stack and why did you pick it?
-Frontend:
+### Tech Stack
 
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- React Router
-- TanStack Query
-- Apollo Client
-- Zustand
-
-Backend:
-
-- FastAPI
-- Strawberry GraphQL
-- SQLAlchemy async
-- Alembic
-- PostgreSQL
-- Redis
-- Celery
-- Data/API:
-
-- GraphQL for main read flows: cars, search, recommendations, compare, reviews, shortlist
-- REST for some side-effect flows: auth, alerts, shortlist, bookings
-- Local/dummy car JSON used for MVP data seeding
-
-Dev/Infra:
-
-- Docker Compose
-- Nginx
-- Node/npm workspace
-- Python virtual environment / requirements
-- Vite dev server for frontend
-- FastAPI server for backend
+- `frontend/`: React 18, TypeScript, Vite, Tailwind CSS, TanStack Query, Apollo Client, Zustand
+- `backend/`: FastAPI, Strawberry GraphQL, SQLAlchemy async, Alembic, PostgreSQL, Redis
 
 ## What did you delegate to AI tools vs. do manually? Where did the tools help most?Where did they get in the way?
 
