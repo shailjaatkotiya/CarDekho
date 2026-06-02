@@ -59,8 +59,9 @@ export const ComparisonBrief = ({ base, rivals }: ComparisonBriefProps) => {
   const setSelection = useComparisonStore((state) => state.setSelection);
 
   const compareSideBySide = () => {
-    setSelection([base.id, ...rivals.map((rival) => rival.id)]);
-    navigate("/compare");
+    const ids = [base.id, ...rivals.map((rival) => rival.id)].slice(0, 4);
+    setSelection(ids);
+    navigate(`/compare?ids=${ids.map((id) => encodeURIComponent(id)).join(",")}`);
   };
 
   if (!rivals.length) {

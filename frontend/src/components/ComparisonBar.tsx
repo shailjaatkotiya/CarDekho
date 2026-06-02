@@ -46,7 +46,7 @@ export const ComparisonBar = ({ selectedCars, onRemove, show }: ComparisonBarPro
             ))}
           </div>
           <Link
-            to="/compare"
+            to={`/compare?ids=${selectedCars.map((car) => encodeURIComponent(car.id)).join(",")}`}
             className="rounded-lg bg-brandRed px-4 py-2 text-sm font-semibold text-white transition hover:bg-zinc-800"
           >
             Compare Now

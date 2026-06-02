@@ -8,6 +8,7 @@ const BrowsePage = lazy(() => import("../pages/Browse"));
 const CarDetailPage = lazy(() => import("../pages/CarDetail"));
 const ComparePage = lazy(() => import("../pages/Compare"));
 const DiscoveryPage = lazy(() => import("../pages/Discovery"));
+const LoginPage = lazy(() => import("../pages/Login"));
 const ShortlistPage = lazy(() => import("../pages/Shortlist"));
 const UsedCarsPage = lazy(() => import("../pages/UsedCars"));
 const EVSectionPage = lazy(() => import("../pages/EVSection"));
@@ -31,6 +32,7 @@ export const AppRouter = () => (
           <Route path="cars/:id" element={<CarDetailPage />} />
           <Route path="compare" element={<ComparePage />} />
           <Route path="discovery" element={<DiscoveryPage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="shortlist" element={<ShortlistPage />} />
           <Route path="used-cars" element={<UsedCarsPage />} />
           <Route path="ev" element={<EVSectionPage />} />

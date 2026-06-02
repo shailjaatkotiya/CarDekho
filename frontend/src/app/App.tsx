@@ -1,4 +1,4 @@
-import { Outlet, NavLink, useNavigate } from "react-router-dom";
+import { Link, Outlet, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Search } from "lucide-react";
 
@@ -51,9 +51,12 @@ export const AppShell = () => {
               </NavLink>
             ))}
           </nav>
-          <button className="rounded-lg border border-appBorder bg-white px-3 py-2 text-sm font-semibold text-textPrimary transition hover:border-slate-300 hover:bg-slate-50">
+          <Link
+            to="/login"
+            className="rounded-lg border border-appBorder bg-white px-3 py-2 text-sm font-semibold text-textPrimary transition hover:border-slate-300 hover:bg-slate-50"
+          >
             Login / Sign Up
-          </button>
+          </Link>
         </div>
       </header>
       <main>

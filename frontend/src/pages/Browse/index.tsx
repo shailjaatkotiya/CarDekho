@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { SlidersHorizontal } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import { CarCard } from "../../components/CarCard";
 import { ComparisonBar } from "../../components/ComparisonBar";
@@ -17,6 +18,7 @@ import { useShortlist } from "../../features/shortlist/hooks/useShortlist";
 import type { Car } from "../../types/car";
 
 const BrowsePage = () => {
+  const navigate = useNavigate();
   const { filters, setFilter } = useFilters();
   const { page, setPage, pageSize, offset } = usePagination(1, 12);
   const mobileOpen = useFilterUiStore((state) => state.mobileOpen);
@@ -31,11 +33,10 @@ const BrowsePage = () => {
     [filters, debouncedQuery, pageSize, offset]
   );
   const carsQuery = useCars(variables);
-  const { shortlisted, save, remove } = (() => {
+  const { shortlisted, remove } = (() => {
     const shortlist = useShortlist();
     return {
       shortlisted: new Set(shortlist.shortlist.map((item) => item.variantId)),
-      save: shortlist.save,
       remove: shortlist.remove
     };
   })();
@@ -96,9 +97,13 @@ const BrowsePage = () => {
                     isCompared={comparison.selectedIds.includes(car.id)}
                     isShortlisted={shortlisted.has(car.id)}
                     onCompareToggle={comparison.toggle}
-                    onShortlistToggle={(id) =>
-                      shortlisted.has(id) ? remove(id) : save(id)
-                    }
+                    onShortlistToggle={(id) => {
+                      if (shortlisted.has(id)) {
+                        remove(id);
+                        return;
+                      }
+                      navigate(`/login?redirect=/cars/${encodeURIComponent(id)}`);
+                    }}
                   />
                 ))}
           </div>

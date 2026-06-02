@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 
 import { useComparison } from "../../features/comparison/hooks/useComparison";
 import { useComparisonStore } from "../../features/comparison/store";
@@ -11,7 +12,21 @@ const parseRowValue = (values: string[], id: string): string => {
 
 const ComparePage = () => {
   const selectedIds = useComparisonStore((state) => state.selectedIds);
+  const setSelection = useComparisonStore((state) => state.setSelection);
+  const [searchParams] = useSearchParams();
   const comparisonQuery = useComparison();
+
+  useEffect(() => {
+    const ids = searchParams
+      .get("ids")
+      ?.split(",")
+      .map((id) => decodeURIComponent(id).trim())
+      .filter(Boolean);
+
+    if (ids?.length) {
+      setSelection(ids);
+    }
+  }, [searchParams, setSelection]);
 
   if (selectedIds.length < 2) {
     return (
@@ -30,6 +45,22 @@ const ComparePage = () => {
   }
 
   const comparison = comparisonQuery.data;
+  if (comparisonQuery.isError) {
+    return (
+      <div className="app-container py-10">
+        <div className="card-surface p-6">
+          <h1 className="font-heading text-3xl">Compare Cars</h1>
+          <p className="mt-2 text-textSecondary">
+            We could not load the comparison right now. Please try again from Browse.
+          </p>
+          <Link to="/browse" className="mt-4 inline-block rounded-lg bg-brandRed px-4 py-2 text-white">
+            Browse cars
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   if (!comparison) {
     return <div className="app-container py-10">Loading comparison...</div>;
   }
