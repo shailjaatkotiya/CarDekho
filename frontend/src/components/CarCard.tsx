@@ -2,8 +2,7 @@ import { CheckSquare, Fuel, Gauge, Heart, HeartOff, Settings2 } from "lucide-rea
 import { Link } from "react-router-dom";
 import { useQueryClient } from "@tanstack/react-query";
 
-import { apolloClient } from "../lib/apollo";
-import { CAR_DETAIL_QUERY } from "../graphql/queries/cars";
+import { getCarById } from "../data/catalog";
 import type { Car } from "../types/car";
 import { formatMileage } from "../utils/formatMileage";
 import { formatPrice } from "../utils/formatPrice";
@@ -64,13 +63,7 @@ export const CarCard = ({
   const prefetchDetail = () => {
     queryClient.prefetchQuery({
       queryKey: ["car", car.id],
-      queryFn: async () => {
-        const { data } = await apolloClient.query<{ car: Car | null }>({
-          query: CAR_DETAIL_QUERY,
-          variables: { id: car.id }
-        });
-        return data.car;
-      },
+      queryFn: async () => getCarById(car.id),
       staleTime: 60_000
     });
   };

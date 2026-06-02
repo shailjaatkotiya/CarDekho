@@ -14,6 +14,19 @@ export type Car = {
   featureGroups?: FeatureGroup[];
   isNew: boolean;
   isEV: boolean;
+  description?: string;
+  idealBuyer?: string;
+  pros?: string[];
+  tradeoffs?: string[];
+  recommendationTags?: string[];
+  rangeKm?: number | null;
+  featureScore?: {
+    safety?: number;
+    comfort?: number;
+    technology?: number;
+    performance?: number;
+    value?: number;
+  };
 };
 
 export type FeatureGroup = {

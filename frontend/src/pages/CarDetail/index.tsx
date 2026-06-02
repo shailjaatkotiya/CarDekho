@@ -3,24 +3,15 @@ import { Check } from "lucide-react";
 import { useParams } from "react-router-dom";
 
 import { LazyImage } from "../../components/LazyImage";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
-import { apolloClient } from "../../lib/apollo";
-import { CAR_DETAIL_QUERY, SIMILAR_CARS_QUERY } from "../../graphql/queries/cars";
-import { REVIEWS_QUERY } from "../../graphql/queries/reviews";
+import { calculateOnRoadPrice, getCarById, getReviews, getSimilarCars } from "../../data/catalog";
 import { ComparisonBrief } from "../../features/comparison/components/ComparisonBrief";
-import { ON_ROAD_PRICE_MUTATION } from "../../graphql/mutations/pricing";
-import { BOOK_TEST_DRIVE_MUTATION } from "../../graphql/mutations/booking";
-import type { Car, Review } from "../../types/car";
 import { formatMileage } from "../../utils/formatMileage";
 import { formatPrice } from "../../utils/formatPrice";
 import { EMICalculator } from "../../components/EMICalculator";
 import { PriceBreakdown } from "../../components/PriceBreakdown";
 import { StarRating } from "../../components/StarRating";
-
-type CarDetailResponse = { car: Car | null };
-type ReviewsResponse = { reviews: Review[] };
-type SimilarCarsResponse = { similarCars: Car[] };
 
 const tabs = ["Overview", "Specs", "Features", "Variants", "Reviews", "Comparisons"] as const;
 
@@ -32,70 +23,19 @@ const CarDetailPage = () => {
   const carQuery = useQuery({
     queryKey: ["car", id],
     enabled: Boolean(id),
-    queryFn: async () => {
-      const { data } = await apolloClient.query<CarDetailResponse>({
-        query: CAR_DETAIL_QUERY,
-        variables: { id },
-        fetchPolicy: "no-cache"
-      });
-      return data.car;
-    }
+    queryFn: async () => getCarById(id)
   });
 
   const reviewsQuery = useQuery({
     queryKey: ["reviews", id],
     enabled: Boolean(id),
-    queryFn: async () => {
-      const { data } = await apolloClient.query<ReviewsResponse>({
-        query: REVIEWS_QUERY,
-        variables: { variantId: id, page: { limit: 6, offset: 0 } },
-        fetchPolicy: "no-cache"
-      });
-      return data.reviews;
-    }
+    queryFn: async () => getReviews(id)
   });
 
   const similarQuery = useQuery({
     queryKey: ["similarCars", id],
     enabled: Boolean(id),
-    queryFn: async () => {
-      const { data } = await apolloClient.query<SimilarCarsResponse>({
-        query: SIMILAR_CARS_QUERY,
-        variables: { id, limit: 4 },
-        fetchPolicy: "no-cache"
-      });
-      return data.similarCars;
-    }
-  });
-
-  const onRoadMutation = useMutation({
-    mutationFn: async () => {
-      const { data } = await apolloClient.mutate<{
-        calculateOnRoadPrice: { totalOnRoadPrice: number };
-      }>({
-        mutation: ON_ROAD_PRICE_MUTATION,
-        variables: { variantId: id, stateCode: "MH" }
-      });
-      return data?.calculateOnRoadPrice.totalOnRoadPrice ?? 0;
-    },
-    onSuccess: (value) => setOnRoadPrice(value)
-  });
-
-  const bookMutation = useMutation({
-    mutationFn: async () => {
-      await apolloClient.mutate({
-        mutation: BOOK_TEST_DRIVE_MUTATION,
-        variables: {
-          input: {
-            variantId: id,
-            city: "Mumbai",
-            preferredDate: new Date().toISOString().split("T")[0],
-            name: "Demo User",
-            phone: "9999999999"
-          }
-        }
-      });
-    }
+    queryFn: async () => getSimilarCars(id, 4)
   });
 
   const car = carQuery.data;
@@ -146,8 +86,8 @@ const CarDetailPage = () => {
               {activeTab === "Overview" ? (
                 <div className="space-y-3 text-sm text-textSecondary">
                   <p>
-                    {car.make.name} {car.model.name} {car.variant} is best for users who want
-                    {` ${car.model.bodyType}`} practicality with confidence-driven buying support.
+                    {car.description ??
+                      `${car.make.name} ${car.model.name} ${car.variant} is best for users who want ${car.model.bodyType} practicality with confidence-driven buying support.`}
                   </p>
                   <div className="grid gap-2 md:grid-cols-2">
                     <div className="rounded-lg border border-appBorder p-3">
@@ -255,13 +195,13 @@ const CarDetailPage = () => {
               {formatPrice(car.priceRange.min)}
             </p>
             <button
-              onClick={() => onRoadMutation.mutate()}
+              onClick={() => setOnRoadPrice(calculateOnRoadPrice(id))}
               className="mt-3 w-full rounded-lg bg-brandRed px-3 py-2 text-white"
             >
               Get on-road price for my city
             </button>
             <button
-              onClick={() => bookMutation.mutate()}
+              onClick={() => alert("Test drive request saved locally for the demo.")}
               className="mt-2 w-full rounded-lg border border-appBorder px-3 py-2"
             >
               Book test drive

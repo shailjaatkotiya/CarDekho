@@ -1,28 +1,17 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
-import { apolloClient } from "../lib/apollo";
-import { CARS_QUERY, UPCOMING_QUERY } from "../graphql/queries/cars";
-import type { Car } from "../types/car";
+import { getUpcomingCars, listCars } from "../data/catalog";
+import type { CarFilters, Pagination } from "../types/filter";
 
-type CarsResponse = {
-  cars: { nodes: Car[]; pageInfo: { total: number; limit: number; offset: number } };
+type UseCarsVariables = {
+  filter?: CarFilters;
+  page?: Pagination;
 };
 
-type UpcomingResponse = {
-  upcomingCars: { nodes: Car[]; pageInfo: { total: number; limit: number; offset: number } };
-};
-
-export const useCars = (variables: Record<string, unknown>) =>
+export const useCars = (variables: UseCarsVariables = {}) =>
   useQuery({
     queryKey: ["cars", variables],
-    queryFn: async () => {
-      const { data } = await apolloClient.query<CarsResponse>({
-        query: CARS_QUERY,
-        variables,
-        fetchPolicy: "no-cache"
-      });
-      return data.cars;
-    },
+    queryFn: async () => listCars(variables),
     // Keep the previous page visible while the next one loads (no blank flash).
     placeholderData: keepPreviousData
   });
@@ -30,12 +19,5 @@ export const useCars = (variables: Record<string, unknown>) =>
 export const useUpcomingCars = () =>
   useQuery({
     queryKey: ["upcomingCars"],
-    queryFn: async () => {
-      const { data } = await apolloClient.query<UpcomingResponse>({
-        query: UPCOMING_QUERY,
-        variables: { page: { limit: 8, offset: 0 } },
-        fetchPolicy: "no-cache"
-      });
-      return data.upcomingCars.nodes;
-    }
+    queryFn: async () => getUpcomingCars()
   });

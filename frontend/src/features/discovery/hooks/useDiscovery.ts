@@ -5,7 +5,7 @@ import { useDiscoveryStore } from "../store";
 export const useDiscovery = () => {
   const { profile, step, setStep, update } = useDiscoveryStore();
 
-  const graphqlInput = useMemo(
+  const recommendationInput = useMemo(
     () => ({
       budget: profile.budget,
       usage: profile.usage,
@@ -20,5 +20,5 @@ export const useDiscovery = () => {
     [profile]
   );
 
-  return { profile, step, setStep, update, graphqlInput };
+  return { profile, step, setStep, update, recommendationInput };
 };

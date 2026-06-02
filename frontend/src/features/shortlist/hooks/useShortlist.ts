@@ -1,11 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-import { apolloClient } from "../../../lib/apollo";
-import { SHORTLIST_QUERY } from "../../../graphql/queries/shortlist";
-import {
-  REMOVE_SHORTLIST_MUTATION,
-  SAVE_SHORTLIST_MUTATION
-} from "../../../graphql/mutations/shortlist";
 import { useShortlistStore } from "../store";
 
 type ShortlistItem = {
@@ -20,28 +14,26 @@ type ShortlistResponse = { shortlist: ShortlistItem[] };
 
 export const useShortlist = () => {
   const guestToken = useShortlistStore((state) => state.guestToken);
-  const setIds = useShortlistStore((state) => state.setIds);
+  const ids = useShortlistStore((state) => state.ids);
+  const add = useShortlistStore((state) => state.add);
+  const removeId = useShortlistStore((state) => state.remove);
   const queryClient = useQueryClient();
 
   const shortlistQuery = useQuery({
-    queryKey: ["shortlist", guestToken],
-    queryFn: async () => {
-      const { data } = await apolloClient.query<ShortlistResponse>({
-        query: SHORTLIST_QUERY,
-        variables: { token: guestToken },
-        fetchPolicy: "no-cache"
-      });
-      setIds(data.shortlist.map((item) => item.variantId));
-      return data.shortlist;
-    }
+    queryKey: ["shortlist", guestToken, ids],
+    queryFn: async (): Promise<ShortlistItem[]> =>
+      ids.map((id) => ({
+        id,
+        variantId: id,
+        notes: "",
+        shareToken: guestToken,
+        savedAt: new Date().toISOString()
+      }))
   });
 
   const saveMutation = useMutation({
     mutationFn: async (variantId: string) => {
-      await apolloClient.mutate({
-        mutation: SAVE_SHORTLIST_MUTATION,
-        variables: { carId: variantId, token: guestToken }
-      });
+      add(variantId);
     },
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["shortlist", guestToken] });
@@ -50,10 +42,7 @@ export const useShortlist = () => {
 
   const removeMutation = useMutation({
     mutationFn: async (variantId: string) => {
-      await apolloClient.mutate({
-        mutation: REMOVE_SHORTLIST_MUTATION,
-        variables: { carId: variantId, token: guestToken }
-      });
+      removeId(variantId);
     },
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ["shortlist", guestToken] });

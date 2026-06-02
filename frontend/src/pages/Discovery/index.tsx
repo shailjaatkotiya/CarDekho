@@ -16,8 +16,8 @@ const stepTitles = [
 ];
 
 const DiscoveryPage = () => {
-  const { profile, step, setStep, update, graphqlInput } = useDiscovery();
-  const recommendationsQuery = useRecommendations(graphqlInput);
+  const { profile, step, setStep, update, recommendationInput } = useDiscovery();
+  const recommendationsQuery = useRecommendations(recommendationInput);
   const comparison = useComparisonBar();
 
   const currentStepTitle = stepTitles[Math.max(0, step - 1)];
