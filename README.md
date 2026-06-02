@@ -1,44 +1,94 @@
-# CarDekho Replica Platform (Scalable MVP)
+# CarDekho Replica Platform
 
-Production-oriented monorepo with:
+React + FastAPI car discovery MVP with browse, compare, recommendations, car details, and login-gated shortlist flow.
 
-- `frontend/`: React 18 + TypeScript + Vite + Tailwind + TanStack Query + Apollo + Zustand
-- `backend/`: FastAPI + Strawberry GraphQL + SQLAlchemy async + Alembic + Redis + Celery
-- `docker-compose.yml`: local stack with Postgres, Redis, backend, worker, frontend, Nginx
+## Tech Stack
 
-## Quick start
+- `frontend/`: React 18, TypeScript, Vite, Tailwind CSS, TanStack Query, Apollo Client, Zustand
+- `backend/`: FastAPI, Strawberry GraphQL, SQLAlchemy async, Alembic, PostgreSQL, Redis
 
-1. Copy environment values:
+## Prerequisites
 
-```bash
-cp .env.example .env
+- Python 3.12+
+- Node.js 20+
+- PostgreSQL running locally
+- Redis running locally
+
+Create a local PostgreSQL database/user that matches `.env.example`, or update `DATABASE_URL` with your own credentials.
+
+## Environment Setup
+
+From the project root:
+
+```powershell
+Copy-Item .env.example backend\.env
 ```
 
-2. Start the full platform:
+Default backend URLs:
 
-```bash
-docker compose up --build
+```env
+DATABASE_URL=postgresql+asyncpg://cardekho:cardekho@localhost:5432/cardekho
+REDIS_URL=redis://localhost:6379/0
+CORS_ORIGINS=http://localhost:5173
 ```
 
-3. Open:
+## Run Backend
 
-- Product app: `http://localhost:8080`
-- Backend health: `http://localhost:8000/health`
-- GraphQL endpoint: `http://localhost:8000/graphql`
+Open a terminal from the project root:
 
-## Monorepo scripts
-
-```bash
-npm run dev:frontend
-npm run build:frontend
-npm run docker:up
-npm run docker:down
+```powershell
+cd backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+alembic upgrade head
+python -m app.seed
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-## Architecture notes
+Backend endpoints:
 
-- GraphQL is the primary read path (`cars`, `search`, `recommend`, `compare`, `reviews`, `shortlist`)
-- REST is used for side-effect operations (`auth`, `alerts`, `shortlist`, `bookings`)
-- Discovery recommendations are rule-based and explainable, with weighted scoring
-- Redis is wired for caching and can be expanded with TTL keys per query pattern
-- Backend keeps clean domain folders so features scale by module, not by giant service files
+- Health: `http://127.0.0.1:8000/health`
+- GraphQL: `http://127.0.0.1:8000/graphql`
+
+## Run Frontend
+
+Open a second terminal from the project root:
+
+```powershell
+cd frontend
+npm i
+npm run dev
+```
+
+Open the app:
+
+```text
+http://localhost:5173
+```
+
+## Useful Commands
+
+Frontend:
+
+```powershell
+cd frontend
+npm run build
+npm run test
+```
+
+Backend:
+
+```powershell
+cd backend
+.\.venv\Scripts\Activate.ps1
+pytest
+```
+
+## Architecture Notes
+
+- GraphQL is the primary read path for cars, search, recommendations, compare, reviews, and shortlist.
+- REST is used for auth, alerts, and shortlist side-effect endpoints.
+- Discovery recommendations are rule-based and explainable.
+- Backend domains are split by feature so the app can scale without one giant service file.
