@@ -2,12 +2,13 @@
   "name": "cardekho-replica-platform",
   "version": "1.0.0",
   "private": true,
-  "description": "Frontend-only car discovery MVP powered by local JSON data",
+  "description": "Car discovery MVP with FastAPI JSON-store APIs and React frontend",
   "workspaces": [
     "frontend"
   ],
   "scripts": {
-    "dev": "npm --prefix frontend run dev -- --host 127.0.0.1",
+    "dev:frontend": "npm --prefix frontend run dev -- --host 127.0.0.1",
+    "dev:backend": "cd backend && python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000",
     "build": "npm --prefix frontend run build",
     "test": "npm --prefix frontend run test"
   }

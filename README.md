@@ -1,35 +1,52 @@
 # CarDekho Replica
 
-Frontend-only car discovery MVP. The app reads directly from `data/cars.json`; there is no backend, database, Docker, Nginx, GraphQL, Redis, Celery, or virtual environment required.
+Car discovery MVP with a lightweight Python API backend and a React frontend.
+
+The backend treats `data/cars.json` as a small NoSQL-style JSON database. There is no PostgreSQL, Redis, Alembic, Docker, Nginx, or Celery.
 
 ## What Is Included
 
-- Browse cars from `data/cars.json`
-- Filter by body type, fuel, transmission, price, and search text
+- FastAPI REST APIs backed by `data/cars.json`
+- Browse cars with filters
 - Car detail pages
-- Local recommendations
+- Recommendations
 - Side-by-side comparison
 - Login page placeholder
 - Browser-local shortlist using `localStorage`
 
 ## Tech Stack
 
-- React 18
-- TypeScript
-- Vite
-- Tailwind CSS
-- TanStack Query
-- Zustand
-- React Router
-- Lucide React
+- Backend: Python, FastAPI, Uvicorn
+- Frontend: React 18, TypeScript, Vite, Tailwind CSS, TanStack Query, Zustand
+- Data store: `data/cars.json`
 
-## Run Locally
+## Backend Setup
 
-From the project root:
+Open a terminal from the project root:
+
+```powershell
+cd backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Backend URLs:
+
+```text
+http://127.0.0.1:8000/health
+http://127.0.0.1:8000/api/cars
+```
+
+## Frontend Setup
+
+Open a second terminal from the project root:
 
 ```powershell
 npm i
-npm run dev
+npm run dev:frontend
 ```
 
 Open:
@@ -38,12 +55,23 @@ Open:
 http://127.0.0.1:5173
 ```
 
-You can also run from the frontend folder:
+## API Overview
 
-```powershell
-cd frontend
-npm i
-npm run dev
+```text
+GET  /api/cars
+GET  /api/cars/upcoming
+GET  /api/cars/{id}
+GET  /api/cars/{id}/similar
+GET  /api/cars/{id}/reviews
+GET  /api/cars/{id}/on-road-price
+POST /api/compare
+POST /api/recommendations
+```
+
+Example:
+
+```text
+GET http://127.0.0.1:8000/api/cars?bodyTypes=suv&limit=12&offset=0
 ```
 
 ## Build
@@ -60,19 +88,4 @@ All catalogue data lives in:
 data/cars.json
 ```
 
-The frontend maps this file into the app's car-card, detail, compare, recommendation, and shortlist views. To add or edit cars, update `data/cars.json` and refresh the Vite app.
-
-## Project Shape
-
-```text
-data/
-  cars.json
-frontend/
-  src/
-    data/catalog.ts
-    pages/
-    components/
-    features/
-```
-
-This project is intentionally kept simple for the MVP. Any API, database, or deployment layer can be added later only when the app actually needs it.
+To add or edit cars, update `data/cars.json` and restart the backend so the API reloads the catalogue.

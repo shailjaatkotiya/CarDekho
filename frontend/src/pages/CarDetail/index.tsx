@@ -195,7 +195,9 @@ const CarDetailPage = () => {
               {formatPrice(car.priceRange.min)}
             </p>
             <button
-              onClick={() => setOnRoadPrice(calculateOnRoadPrice(id))}
+              onClick={() => {
+                calculateOnRoadPrice(id).then(setOnRoadPrice);
+              }}
               className="mt-3 w-full rounded-lg bg-brandRed px-3 py-2 text-white"
             >
               Get on-road price for my city
