@@ -2,6 +2,17 @@
 
 Frontend-only car discovery MVP. The app reads directly from `data/cars.json`; there is no backend, database, Docker, Nginx, GraphQL, Redis, Celery, or virtual environment required.
 
+## Screenshots
+
+### Home
+![Home page](docs/screenshots/home.png)
+
+### Car Detail
+![Car detail page](docs/screenshots/car-detail.png)
+
+### Compare
+![Compare cars](docs/screenshots/compare.png)
+
 ## What Is Included
 
 - Browse cars from `data/cars.json`
