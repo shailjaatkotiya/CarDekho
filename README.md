@@ -4,15 +4,8 @@ Car discovery MVP with a lightweight Python API backend and a React frontend.
 
 The backend treats `data/cars.json` as a small NoSQL-style JSON database. There is no PostgreSQL, Redis, Alembic, Docker, Nginx, or Celery.
 
-## Screenshots
-
-### Home
 ![Home page](docs/screenshots/home.png)
-
-### Car Detail
 ![Car detail page](docs/screenshots/car-detail.png)
-
-### Compare
 ![Compare cars](docs/screenshots/compare.png)
 
 ## What Is Included
