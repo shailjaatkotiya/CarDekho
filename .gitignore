@@ -31,3 +31,5 @@ backend/alembic/versions/*.pyc
 # IDE/system
 .DS_Store
 Thumbs.db
+
+.vercel

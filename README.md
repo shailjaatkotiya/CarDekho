@@ -140,3 +140,23 @@ data/cars.json
 ```
 
 To add or edit cars, update `data/cars.json` and restart the backend so the API reloads the catalogue.
+
+## Deploy to Vercel
+
+This repo is configured to publish the frontend to Vercel. The `vercel.json` at the repo root tells Vercel to build the `frontend` folder with `@vercel/static-build`.
+
+Options:
+
+- Dashboard: Import this Git repository in Vercel and set the Project Root to `frontend`. Use the build command `npm run build` and the output directory `dist`.
+- CLI: Install the Vercel CLI and run deploy from the repository root:
+
+```bash
+npm i -g vercel
+vercel login
+vercel --prod
+```
+
+Notes on the backend:
+
+- The included backend is a FastAPI app. Vercel supports Python serverless functions, but a full FastAPI/Uvicorn app is easier to host on services like Render, Railway, or Fly.io. If you want the backend on Vercel, consider extracting the specific API endpoints into Vercel Serverless Functions or deploy the backend independently and point the frontend to that URL.
+
